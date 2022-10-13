@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "RingBearer";
+  src: local("RingBearer"), url(~assets/fonts/RingBearer.ttf) format("truetype");
+}
+
+html {
+  font-family: "RingBearer";
+}

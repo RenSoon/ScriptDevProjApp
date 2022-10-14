@@ -9,7 +9,9 @@
                                 <input v-model="txtEmail" type="text" class="InputField" placeholder="Email">
                                 <input v-model="txtPword" type="password" class="InputField" placeholder="Password">
                                 <hr style="margin-top: 5%;width: 90%;background: var(--bs-primary);color: var(--bs-card-bg);">
-                                <button @click="LoginClick" class="btn btn-primary login-button" style="">LOGIN</button>
+                                <NuxtLink to="/Dashboard" style="color: inherit;text-decoration: none;">
+                                    <button @click="LoginClick" class="btn btn-primary login-button" style="">Login</button>
+                                </NuxtLink>
                         </div>
                         <a class="text-center forgotlink" style="width: 28vw;" @click="ForgotPass('Register Link Clicked', false)">Create an Account<span class="forgotlinkImg"><img src="/gimli.gif" style="width: 16vw;"/></span></a>
                         <a class="text-center forgotlink" style="width: 28vw;" @click="ForgotPass('Forgot Link Clicked', true)">Forgot Password?<span class="forgotlinkImg"><img src="/samwise_gamgee.gif" style="width: 16vw;"/></span></a>
@@ -18,7 +20,7 @@
             </div>
         </div>
     </div>
-</template>15vh;
+</template>
 
 <script>
     export default {
@@ -83,7 +85,7 @@
     }
     .TitleHeader{
         color: #d1d188;
-        font-family: Ringbearer;
+        font-family: RingBearer;
         font-size: 2.5vw;
 
         
@@ -123,20 +125,20 @@
         width: 15vw;
         height: 5.5vh;
         background: url(/Rivendell.png) center / cover no-repeat;
-        color: #d9db86;
+        color: #d9db86 !important;
         border-style: none;
         font-weight: bold;
         font-size: 1.5vw;
         font-family: Ringbearer;
     }
     .login-button:hover{
-        color: #7b934a;
+        color: #7b934a !important;
     }
     .forgotlink{
         font-family: Ringbearer;
         font-size: 1vw;
         margin-top: 5%;
-        color: #d1d188
+        color: #d1d188;
     }
     .forgotlink:hover{
         

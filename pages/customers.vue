@@ -9,7 +9,3 @@
     layout: 'default'
 }
 </script>
-
-<stylescoped>
-
-</style>

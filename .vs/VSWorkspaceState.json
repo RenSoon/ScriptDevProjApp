@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\pages"
+    "\\assets",
+    "\\assets\\fonts",
+    "\\layouts"
   ],
-  "SelectedNode": "\\components",
+  "SelectedNode": "\\nuxt.config.js",
   "PreviewInSolutionExplorer": false
 }

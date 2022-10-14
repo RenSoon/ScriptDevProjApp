@@ -13,8 +13,8 @@
                                     <button @click="LoginClick" class="btn btn-primary login-button" style="">Login</button>
                                 </NuxtLink>
                         </div>
-                        <a class="text-center forgotlink" style="width: 28vw;" @click="ForgotPass('Register Link Clicked', false)">Create an Account<span class="forgotlinkImg"><img src="/gimli.gif" style="width: 16vw;"/></span></a>
-                        <a class="text-center forgotlink" style="width: 28vw;" @click="ForgotPass('Forgot Link Clicked', true)">Forgot Password?<span class="forgotlinkImg"><img src="/samwise_gamgee.gif" style="width: 16vw;"/></span></a>
+                        <a class="text-center forgotlink" style="width: 28vw;" @click="ForgotPass('Register Link Clicked')">Create an Account<span class="forgotlinkImg"><img src="/gimli.gif" style="width: 16vw;"/></span></a>
+                        <a class="text-center forgotlink" style="width: 28vw;" @click="ForgotPass('Forgot Link Clicked')">Forgot Password?<span class="forgotlinkImg"><img src="/samwise_gamgee.gif" style="width: 16vw;"/></span></a>
                     </div>
                 </div>
             </div>
@@ -46,16 +46,8 @@
                 this.txtEmail = "";
                 this.txtPword = "";
             },
-            ForgotPass(text, page){
+            ForgotPass(text){
                 alert(text);
-                if(page)
-                {
-                    this.$router.push('/2ndPage');
-                }
-                else
-                {
-                  this.$router.back();
-                }
             }
         }
 }

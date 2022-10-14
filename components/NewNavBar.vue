@@ -38,13 +38,13 @@ export default{
 .ListClass{
     color: #ebc960 !important; 
     margin-top: 2.5vh;
-    font-size: 1.7vw;
+    font-size: 1.2vw;
 }
 .ListClass:hover{
     color: #7b934a !important;
 }
 .titleClass{
-    font-size: 2vw;
+    font-size: 1.7vw;
     color: #ebc960;
 }
 .titleClass:hover{

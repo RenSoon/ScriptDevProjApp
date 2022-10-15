@@ -1,8 +1,12 @@
 # ScriptDevApp
 
+## Heroku Hosted App
+link: https://scriptdevprojapp.herokuapp.com/
+
 ## Build Setup
 
 ```bash
+
 # install dependencies
 $ npm install
 

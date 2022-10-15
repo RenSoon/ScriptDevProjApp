@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-center align-items-center justify-content-xxl-center align-items-xxl-center" style="height: inherit;width: inherit;">
             <div class="d-flex flex-column">
                 <div class="container-fluid myClass">
-                    <p id="TextHead">This is the Dashboard Page</p>
+                    <p id="TextHead">This is the Customers Page</p>
                     <b-tooltip target="TextHead" triggers="hover" placement="top" noninteractive html="false" ><b-img fluid-grow src="/for_frodo.gif"/></b-tooltip>
                 </div>
                 
@@ -14,7 +14,7 @@
 
 <script>
 export default{
-    name: 'Dashboard'
+    name: 'Customers'
 }
 </script>
 

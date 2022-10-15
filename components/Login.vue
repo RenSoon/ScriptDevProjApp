@@ -11,9 +11,11 @@
                                 <b-form-input class="InputField" id="Password" v-model="txtPword" :state="CheckPword" placeholder="enter password" type="password" aria-describedby="pword-help"></b-form-input>
                                 <b-form-invalid-feedback id="pword-help" style="margin-left: 5vw;font-family: Ringbearer;">Password must be 8 characters or more</b-form-invalid-feedback>
                                 <hr style="margin-top: 5%;width: 90%;background: var(--bs-primary);color: var(--bs-card-bg);">
-                                <NuxtLink to="/Dashboard" style="color: inherit;text-decoration: none;">
-                                    <button @click="LoginClick" class="btn btn-primary login-button" style="">Login</button>
-                                </NuxtLink>
+                                
+                                    <button @click="LoginClick" class="btn btn-primary login-button" style="">
+                                        <NuxtLink to="/Dashboard" style="color: inherit;text-decoration: none;">Login</NuxtLink>
+                                    </button>
+                                
                         </div>
                         <a class="text-center forgotlink" style="width: 28vw;" @click="ForgotPass('Register Link Clicked')">Create an Account<span class="forgotlinkImg"><img src="/gimli.gif" style="width: 16vw;"/></span></a>
                         <a class="text-center forgotlink" style="width: 28vw;" @click="ForgotPass('Forgot Link Clicked')">Forgot Password?<span class="forgotlinkImg"><img src="/samwise_gamgee.gif" style="width: 16vw;"/></span></a>

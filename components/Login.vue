@@ -36,13 +36,26 @@
         },
         methods: {
             LoginClick() {
+                let msg = "";
+                let ttl = "";
+                let vrnt = "";
                 if (this.txtEmail == "" || this.txtPword == "") {
-                    alert("Please fill all fields.");
+                    msg = "Please fill all fields.";
+                    ttl = "Missing Fields";
+                    vrnt = "danger";
                 }
                 else {
-                    alert("Email: " + this.txtEmail + "\r\nPassword: " + this.txtPword + "\r\nHello!!!");
+                    msg = "Email: " + this.txtEmail + "\r\nPassword: " + this.txtPword + "\r\nHello!!!";
+                    ttl = "Success";
+                    vrnt = "success";
                     this.ClearField();
                 }
+                this.$bvToast.toast(msg, {
+                                    title: ttl,
+                                    autoHideDelay: 3000,
+                                    appendToast: false,
+                                    variant: vrnt
+                                    });
             },
             ClearField() {
                 this.txtEmail = "";

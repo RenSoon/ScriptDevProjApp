@@ -58,6 +58,18 @@
                 if (this.txtEmail == "" || this.txtPword == "" || this.txtUname == "" || this.txtRPword == "") {
                     msg = "Please fill all fields.";
                     ttl = "Missing Fields";
+                    vrnt = "warning";
+                }
+                else if(this.txtPword.length < 8 || this.txtRPword.length < 8)
+                {
+                    ttl = "Password";
+                    msg = "Password must atleast be 8 characters long.";
+                    vrnt = "danger";
+                }
+                else if(this.txtPword != this.txtRPword)
+                {
+                    ttl = "Password Mismatch";
+                    msg = "Password confirmation do not match original password.";
                     vrnt = "danger";
                 }
                 else {
@@ -66,6 +78,8 @@
                     vrnt = "success";
                     this.ClearField();
                 }
+
+                
                 this.$bvToast.toast(msg, {
                                     title: ttl,
                                     autoHideDelay: 3000,

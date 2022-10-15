@@ -6,8 +6,10 @@
                     <div :class="Card" class="card text-start border-0 d-flex">
                         <h1 class="text-center TitleHeader" style="width: 28vw;margin-bottom: 5%;">My Web Application<span class="tooltipText"><img src="/for_frodo.gif" style="width:22vw;" /></span></h1>
                         <div class="card-body d-flex flex-column align-items-center align-items-xxl-center CardBody">
-                                <input v-model="txtEmail" type="text" class="InputField" placeholder="Email">
-                                <input v-model="txtPword" type="password" class="InputField" placeholder="Password">
+                                <b-form-input class="InputField" id="Email" v-model="txtEmail" :state="CheckEmail" placeholder="enter email" type="email" aria-describedby="email-help"></b-form-input>
+                                <b-form-invalid-feedback id="email-help" style="margin-left: 5vw;font-family: Ringbearer;">Invalid email</b-form-invalid-feedback>
+                                <b-form-input class="InputField" id="Password" v-model="txtPword" :state="CheckPword" placeholder="enter password" type="password" aria-describedby="pword-help"></b-form-input>
+                                <b-form-invalid-feedback id="pword-help" style="margin-left: 5vw;font-family: Ringbearer;">Password must be 8 characters or more</b-form-invalid-feedback>
                                 <hr style="margin-top: 5%;width: 90%;background: var(--bs-primary);color: var(--bs-card-bg);">
                                 <NuxtLink to="/Dashboard" style="color: inherit;text-decoration: none;">
                                     <button @click="LoginClick" class="btn btn-primary login-button" style="">Login</button>
@@ -48,6 +50,22 @@
             },
             ForgotPass(text){
                 alert(text);
+            }
+        },
+        computed: {
+            CheckEmail(){
+                if(this.txtEmail.length == 0)
+                {
+                    return null;
+                }
+                return this.txtEmail.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) ? true:false;
+            },
+            CheckPword(){
+                if(this.txtPword.length == 0)
+                {
+                    return null;
+                }
+                return this.txtPword.length >= 8 ? true : false;
             }
         }
 }

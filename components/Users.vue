@@ -4,7 +4,7 @@
             <div class="d-flex flex-column">
                 <div class="container-fluid myClass">
                     <p id="TextHead">This is the Customers Page</p>
-                    <b-tooltip target="TextHead" triggers="hover" placement="top" noninteractive html="false" ><b-img fluid-grow src="/for_frodo.gif"/></b-tooltip>
+                    <TableDesign/>
                 </div>
                 
             </div>
@@ -14,7 +14,7 @@
 
 <script>
 export default{
-    name: 'Customers'
+    name: 'Users'
 }
 </script>
 

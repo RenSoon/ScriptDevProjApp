@@ -20,7 +20,7 @@
                 <NuxtLink to="/products" style="color: inherit">Products</NuxtLink>
                 </li>
                 <li class="nav-item ListClass">
-                <NuxtLink to="/customers" style="color: inherit">Customers</NuxtLink>
+                <NuxtLink to="/users" style="color: inherit">Users</NuxtLink>
                 </li>
             </ul>
         </div>

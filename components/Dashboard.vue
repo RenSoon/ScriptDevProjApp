@@ -4,7 +4,6 @@
             <div class="d-flex flex-column">
                 <div class="container-fluid myClass">
                     <p id="TextHead">This is the Dashboard Page</p>
-                    <TableDesign/>
                 </div>
                 
             </div>

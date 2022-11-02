@@ -6,7 +6,6 @@
                     <p id="TextHead">This is the Home Page</p>
                     <b-tooltip target="TextHead" triggers="hover" placement="top" noninteractive html="false" ><b-img fluid-grow src="/for_frodo.gif"/></b-tooltip>
                 </div>
-                
             </div>
         </div>
     </div>

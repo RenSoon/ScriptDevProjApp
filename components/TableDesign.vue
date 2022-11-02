@@ -10,10 +10,10 @@
             <template v-slot:cell(actions)="{ item }">
                 <div class="row">
                     <div class="col">
-                        <b-button @click="DeleteClick(item)" variant="danger">Delete</b-button>
+                        <b-button @click="DeleteClick(item)" variant="danger"><img src="/delete.png" style="width: 1.5vw; height: 1.5vw;" /></b-button>
                     </div>
                     <div class="col">
-                        <b-button @click="EditClick(item)" variant="primary">Edit</b-button>
+                        <b-button @click="EditClick(item)" variant="primary"><img src="/edit.png" style="width: 1.5vw; height: 1.5vw;" /></b-button>
                     </div>
                 </div>
             </template>
@@ -40,7 +40,7 @@
                 
                 <hr style="margin-top: 5%;width: 90%;background: var(--bs-primary);color: var(--bs-card-bg);">
                 <button @click="RegisterClick" class="btn btn-primary login-button" style="">
-                    <NuxtLink to="/" style="color: inherit;text-decoration: none;">Register</NuxtLink>
+                    Add
                 </button>
             </div>
         </b-modal>

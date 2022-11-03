@@ -10,10 +10,10 @@
             <template v-slot:cell(actions)="{ item }">
                 <div class="row">
                     <div class="col">
-                        <b-button @click="DeleteClick(item)" variant="danger"><img src="/delete.png" style="width: 1.5vw; height: 1.5vw;" /></b-button>
+                        <b-button @click="DeleteClick(item)" variant="warning"><img src="/delete.png" style="width: 1.5vw; height: 1.5vw;" /></b-button>
                     </div>
                     <div class="col">
-                        <b-button @click="EditClick(item)" variant="primary"><img src="/edit.png" style="width: 1.5vw; height: 1.5vw;" /></b-button>
+                        <b-button @click="EditClick(item)" variant="info"><img src="/edit.png" style="width: 1.5vw; height: 1.5vw;" /></b-button>
                     </div>
                 </div>
             </template>
@@ -115,7 +115,6 @@ let id = 0;
                     this.ClearField();
                     this.$refs['my-modal'].hide();
                 }
-
                 
                 this.$bvToast.toast(msg, {
                                     title: ttl,

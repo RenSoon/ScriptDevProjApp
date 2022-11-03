@@ -3,6 +3,19 @@
   src: local("RingBearer"), url(~assets/fonts/Ringbearer.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "ExoLight";
+  src: local("ExoLight"), url(~assets/fonts/Exo2-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "ExoSemiBold";
+  src: local("ExoSemiBold"), url(~assets/fonts/Exo2-SemiBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "ExoBold";
+  src: local("ExoBold"), url(~assets/fonts/Exo2-Bold.ttf) format("truetype");
+}
 html {
   font-family: "RingBearer";
 }

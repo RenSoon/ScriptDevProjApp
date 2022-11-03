@@ -1,5 +1,5 @@
 <template>
-    <div style="height:100vh;">
+    <div style="height:100vh; overflow: hidden;">
         <div class="d-flex justify-content-center align-items-center justify-content-xxl-center align-items-xxl-center" :class="BodyClass">
             <div class="d-flex flex-column">
                 <div class="container-fluid">
@@ -7,11 +7,11 @@
                         <h1 class="text-center TitleHeader" style="width: 28vw;margin-bottom: 5%;">My Web Application<span class="tooltipText"><img src="/for_frodo.gif" style="width:22vw;" /></span></h1>
                         <div class="card-body d-flex flex-column align-items-center align-items-xxl-center CardBody">
                             <b-form-group>
-                                <b-form-input class="InputField" id="Email" v-model="txtEmail" :state="CheckEmail" placeholder="enter email" type="email" aria-describedby="email-help"></b-form-input>
+                                <b-form-input class="InputField" id="Email" v-model="txtEmail" style="text-transform: lowercase;" :state="CheckEmail" placeholder="Enter Email" type="email" aria-describedby="email-help"></b-form-input>
                                 <b-form-invalid-feedback id="email-help" style="margin-left: 5vw;font-family: Ringbearer;">Invalid email</b-form-invalid-feedback>
                             </b-form-group>
                             <b-form-group>
-                                <b-form-input class="InputField" id="Password" v-model="txtPword" :state="CheckPword" placeholder="enter password" type="password" aria-describedby="pword-help"></b-form-input>
+                                <b-form-input class="InputField" id="Password" v-model="txtPword" :state="CheckPword" placeholder="Enter Password" type="password" aria-describedby="pword-help"></b-form-input>
                                 <b-form-invalid-feedback id="pword-help" style="margin-left: 5vw;font-family: Ringbearer;">Password must be 8 characters or more</b-form-invalid-feedback>
                             </b-form-group>
                             <hr style="margin-top: 5%;width: 90%;background: var(--bs-primary);color: var(--bs-card-bg);">
@@ -99,9 +99,9 @@
         padding-left: 15px;
         height: 5vh;
         font-size: 1.1vw;
-        font-family: Ringbearer;
         color: #ebc960;
         background-color: transparent;
+        font-family: ExoSemiBold;
     }
     ::placeholder{
         color: whitesmoke;

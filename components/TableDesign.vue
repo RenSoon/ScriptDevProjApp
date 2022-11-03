@@ -52,10 +52,10 @@
                 
                 
                 <hr style="margin-top: 5%;width: 90%;background: var(--bs-primary);color: var(--bs-card-bg);">
-                <b-button :class="{isHidden : !isAdding}" @click="RegisterClick(false)" variant="primary" style="font-family: ExoBold; text-transform: uppercase;">
+                <b-button :class="{isHidden : !isAdding}" @click="RegisterClick(false)" variant="primary" style="font-family: RingBearer; text-transform: uppercase;">
                     Add
                 </b-button>
-                <b-button :class="{isHidden : isAdding}" @click="RegisterClick(true)" variant="primary" id="BtnUpdate" style="font-family: ExoBold; text-transform: uppercase;">Update</b-button>
+                <b-button :class="{isHidden : isAdding}" @click="RegisterClick(true)" variant="primary" id="BtnUpdate" style="font-family: RingBearer; text-transform: uppercase;">Update</b-button>
             </div>
         </b-modal>
     </div>
@@ -70,7 +70,7 @@ let id = 0;
         data(){
             return{
                 new_data: [],
-                fields: [{key: 'username', sortable: true},{key: 'email', sortable: true}, 'password', 'actions'],
+                fields: [{key: "id", sortable: true}, {key: 'username', sortable: true},{key: 'email', sortable: true}, 'password', 'actions'],
                 tableData: [{id: id++, username: "sbrendon", email: "brendon@mail.com", password: "bsamsons"},
                             {id: id++, username: "frodo", email: "frodo@mail.com", password: "bagginss"},
                             {id: id++, username: "gollum", email: "gollum@mail.com", password: "myprecious"}
@@ -238,7 +238,7 @@ let id = 0;
     padding-left: 15px;
     height: 5vh;
     font-size: 1.1vw;
-    font-family: Ringbearer;
+    font-family: ExoLight;
     color: #ebc960;
     background-color: transparent;
 }

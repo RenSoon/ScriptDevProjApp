@@ -22,6 +22,9 @@
                 <li class="nav-item ListClass">
                 <NuxtLink to="/users" style="color: inherit">Users</NuxtLink>
                 </li>
+                <li  class="nav-item ListClass" style=" text-align: center; margin-top: 15vh;">
+                    <NuxtLink to="/" style="color: inherit;">LOGOUT</NuxtLink>
+                </li>
             </ul>
         </div>
     

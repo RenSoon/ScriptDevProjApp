@@ -62,8 +62,6 @@
 </template>
 
 <script>
-import { timeStamp } from 'console';
-
 let id = 0;
     export default{
         name: 'TableDesign',

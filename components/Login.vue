@@ -8,11 +8,11 @@
                         <div class="card-body d-flex flex-column align-items-center align-items-xxl-center CardBody">
                             <b-form-group>
                                 <b-form-input class="InputField" id="Email" v-model="txtEmail" style="text-transform: lowercase;" :state="CheckEmail" placeholder="Enter Email" type="email" aria-describedby="email-help"></b-form-input>
-                                <b-form-invalid-feedback id="email-help" style="margin-left: 5vw;font-family: Ringbearer;">Invalid email</b-form-invalid-feedback>
+                                <b-form-invalid-feedback id="email-help" style="font-family: Ringbearer;">Invalid email</b-form-invalid-feedback>
                             </b-form-group>
                             <b-form-group>
                                 <b-form-input class="InputField" id="Password" v-model="txtPword" :state="CheckPword" placeholder="Enter Password" type="password" aria-describedby="pword-help"></b-form-input>
-                                <b-form-invalid-feedback id="pword-help" style="margin-left: 5vw;font-family: Ringbearer;">Password must be 8 characters or more</b-form-invalid-feedback>
+                                <b-form-invalid-feedback id="pword-help" style="font-family: Ringbearer;">Password must be 8 characters or more</b-form-invalid-feedback>
                             </b-form-group>
                             <hr style="margin-top: 5%;width: 90%;background: var(--bs-primary);color: var(--bs-card-bg);">
                             
@@ -104,13 +104,16 @@
         font-family: ExoSemiBold;
     }
     ::placeholder{
-        color: whitesmoke;
+        color: black;
+        text-transform: uppercase;
     }
     .CardBody{
         border-radius: 12px;
-        filter: blur(0px);
+        background: rgba(255,255,255,0.45);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
         border: 2px solid #ebc960;
-        backdrop-filter: blur(15px);
+
     }
     .TitleHeader{
         color: #d1d188;

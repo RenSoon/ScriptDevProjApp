@@ -17,10 +17,10 @@
                 <NuxtLink to="/orders" style="color: inherit">Orders</NuxtLink>
                 </li>
                 <li class="nav-item ListClass">
-                <NuxtLink to="/products" style="color: inherit">Products</NuxtLink>
+                <NuxtLink to="/products" style="color: inherit">MongoDB</NuxtLink>
                 </li>
                 <li class="nav-item ListClass">
-                <NuxtLink to="/users" style="color: inherit">Users</NuxtLink>
+                <NuxtLink to="/users" style="color: inherit">Local</NuxtLink>
                 </li>
                 <li  class="nav-item ListClass" style=" text-align: center; margin-top: 15vh;">
                     <NuxtLink to="/" style="color: inherit;">LOGOUT</NuxtLink>

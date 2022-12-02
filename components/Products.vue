@@ -3,8 +3,8 @@
         <div class="d-flex justify-content-center align-items-center justify-content-xxl-center align-items-xxl-center" style="height: inherit;width: inherit;">
             <div class="d-flex flex-column">
                 <div class="container-fluid myClass">
-                    <p id="TextHead">This is the Products Page</p>
-                    <b-tooltip target="TextHead" triggers="hover" placement="top" noninteractive html="false" ><b-img fluid-grow src="/for_frodo.gif"/></b-tooltip>
+                    <p id="TextHead" style="text-align: center;">Data is From The MongoDB Database</p>
+                    <MongoTable />
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@ export default{
 <style scoped>
 .myClass{
     color: #d9db86 !important;
-    font-size: 5vw;
+    font-size: 3vw;
     font-family: Ringbearer;
 }
 </style>

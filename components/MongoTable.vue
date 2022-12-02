@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col" style="margin-top: 4vh;">
-                <b-table sticky-header="50vh" style="overflow-x: hidden;" borderless striped hover :items="tableData" :fields="fields" class="mytable">
+                <b-table sticky-header="50vh" style="overflow-x: hidden;" head-variant="light" no-border-collapse borderless striped hover :items="tableData" :fields="fields" class="mytable">
                     <template v-slot:cell(actions)="{ item, index }">
                         <div class="row">
                             <div class="col">
@@ -29,7 +29,6 @@
                 </b-table>
             </div>
         </div>
-        
         <b-modal ref="FormModal" hide-footer v-bind:title="modalTitle" v-model="showModal">
             <div class="card-body d-flex flex-column align-items-center align-items-xxl-center CardBody">
                 <div :class="{isHidden : isAdding}" style="display: flex; flex-direction: row; justify-content: start; align-items: center; font-family: Ringbearer;">
@@ -58,14 +57,11 @@
                             </b-button>
                         </div>
                     </div>
-                    
                 </b-form-group>
                 <b-form-group>
                     <b-form-input v-b-tooltip.hover title="Repeat Password" class="InputField" id="RPassword" v-model="txtRPword" :state="CheckRPword" placeholder="Confirm Password" type="password" aria-describedby="rpword-help"></b-form-input>
                     <b-form-invalid-feedback id="rpword-help" style="font-family: Ringbearer;">Password does not match</b-form-invalid-feedback>
                 </b-form-group>
-                
-                
                 <hr style="margin-top: 5%;width: 90%;background: var(--bs-primary);color: var(--bs-card-bg);">
                 <b-button :class="{isHidden : !isAdding}" @click="RegisterClick(false)" variant="primary" style="font-family: RingBearer; text-transform: uppercase;">
                     Add
@@ -73,11 +69,25 @@
                 <b-button :class="{isHidden : isAdding}" @click="RegisterClick(true)" variant="primary" id="BtnUpdate" style="font-family: RingBearer; text-transform: uppercase;">Update</b-button>
             </div>
         </b-modal>
+        <b-modal ref="ForConfirm" hide-footer title="Confirm Account Deletion" v-model="delCon">
+            <div class="d-flex" style="justify-content: center; align-items: center;">
+                <p>
+                    Do you want to proceed deleting<br>
+                    Account for <b>{{ delName }}</b><br>
+                    with <b>ID: {{delID}}</b>
+                </p>
+            </div>
+            <hr />
+            <div class="d-flex flex-row" style="justify-content: center; align-items: center;">
+                <b-button @click="DeleteConfirm(false)" variant="primary">Cancel</b-button>
+                <div style="width: 4vw;"></div>
+                <b-button @click="DeleteConfirm(true)" variant="warning"><b>Proceed</b></b-button>
+            </div>
+        </b-modal>
     </div>
 </template>
-
 <script>
-const url = 'http://localhost:3001/accounts/';
+const url = 'http://localhost:3002/accounts/';
     export default{
         name: 'TableDesign',
         data(){
@@ -85,7 +95,7 @@ const url = 'http://localhost:3001/accounts/';
                 new_data: [],
                 fields: [{key: "id", sortable: true}, {key: 'name', sortable: true},{key: 'email', sortable: true}, 'password', 'actions'],
                 tableItem: {id: "", name: "", email: "", password: ""},
-                tableData: this.tableData,
+                tableData: [],
                 tableRow: 0,
                 txtRPword: "",
                 modalTitle: "Add User",
@@ -95,7 +105,10 @@ const url = 'http://localhost:3001/accounts/';
                 type: 'password',
                 source: "/hide.png",
                 SID: "",
-                id: 0
+                id: 0,
+                delCon: false,
+                delID: 0,
+                delName: ""
             }
         },
         methods:{
@@ -109,11 +122,13 @@ const url = 'http://localhost:3001/accounts/';
                 this.isAdding = true;
                 this.tableItem["id"] = this.id;
             },
-            async DeleteClick(item){
-                var id = item.id;
-                await this.$axios.$post(url + 'delete', {id: item.id})
-                .then((res) => {
-                    this.$bvToast.toast("Account with ID: " + id + " Deleted Successfully", {
+            async DeleteConfirm(res){
+                this.delCon = false;
+                if(res)
+                {
+                    await this.$axios.$post(url + 'delete', {id: this.delID})
+                    .then((res) => {
+                    this.$bvToast.toast("Account with ID: " + this.delID + " Deleted Successfully", {
                                     title: "Account Deletion",
                                     autoHideDelay: 3000,
                                     appendToast: false,
@@ -122,7 +137,7 @@ const url = 'http://localhost:3001/accounts/';
                     console.log(res);
                 })
                 .catch((err) => {
-                    this.$bvToast.toast("Failed to Delete Account with ID: " + id + "", {
+                    this.$bvToast.toast("Failed to Delete Account with ID: " + this.delID + "", {
                                     title: "Account Deletion",
                                     autoHideDelay: 3000,
                                     appendToast: false,
@@ -131,6 +146,12 @@ const url = 'http://localhost:3001/accounts/';
                     console.log(err)
                 });
                 this.GetAllAccount();
+                }
+            },
+            DeleteClick(item){
+                this.delCon = true;
+                this.delID = item.id;
+                this.delName = item.name;
             },
             EditClick(item, index){
                 // this.$refs['FormModal'].show();
@@ -167,9 +188,6 @@ const url = 'http://localhost:3001/accounts/';
                 else {
                     msg = "Name: " + this.tableItem.name + " Email: " + this.tableItem.email + " Password: " + this.tableItem.password + " RPassword: " + this.txtRPword;
                     if(updating){
-                        this.tableData[this.tableRow].name = this.tableItem.name;
-                        this.tableData[this.tableRow].email = this.tableItem.email;
-                        this.tableData[this.tableRow].password = this.tableItem.password;
                         await this.$axios.$post(url + 'update', this.tableItem)
                         .then((res) => {
                             vrnt = "success";
@@ -229,41 +247,46 @@ const url = 'http://localhost:3001/accounts/';
                 this.showPassword = !this.showPassword;
             },
             async SearchID(){
+                var hasValue = false;
                 if(this.SID.length > 0)
                 {
                     await this.$axios.$get(url + this.SID)
                     .then((res) => {
-                        console.log(res);this.showPassword = false;
+                        console.log(res);
+                        this.showPassword = false;
                         this.SID = "";
                         this.source = "/hide.png";
                         this.isAdding = false;
                         this.showModal = true;
                         this.tableItem = {id: res["id"], name: res["name"], email: res["email"], password: res["password"]};
                         this.modalTitle = "Update User Information";
-                        this.tableRow = index;
                         this.type = "password";
+                        hasValue = true;
                     })
                     .catch((err) => {
-                        console.log(err);
+                        this.$bvToast.toast("Account ID Not Found on Database", {
+                                    title: "Account ID",
+                                    autoHideDelay: 3000,
+                                    appendToast: false,
+                                    variant: "danger"
+                                    });
                     });
                 }
             },
             async GetAllAccount(){
+                var data = [];
                 await this.$axios.$get(url)
                     .then((res) => {
                         console.log("Response");
                         console.log(res);
                         this.tableData = res;
-                    }).catch((err) => console.log(err));
-                this.GetCurrentID();
+                        this.GetCurrentID();
+                    });
+                    // this.tableData = data;
+                    // console.log(data);
             },
-            GetCurrentID(){
-                this.$axios.$get(url + 'ID/GetNextID')
-                .then((res) => {
-                    console.log(res);
-                    this.id = res;
-                })
-                .catch((err) => console.log(err));
+            async GetCurrentID(){
+                this.id = Math.max.apply(Math, this.tableData.map(function(o) { return o.id; })) + 1;
             }
         },
         computed: {
@@ -299,7 +322,7 @@ const url = 'http://localhost:3001/accounts/';
                 this.modalTitle = "Add User";
             }
         },
-        async mounted(){
+     mounted(){
             // async LoadTable(){
                 this.GetAllAccount();
             // },  
@@ -307,3 +330,44 @@ const url = 'http://localhost:3001/accounts/';
     }
 </script>
 
+<style>
+.mytable{
+    font-size: 30%;
+    backdrop-filter: blur(15px);
+    width: 70vw;
+}
+.isHidden{
+    display: none;
+}
+.InputField{
+    margin-top: 5%;
+    width: 21vw;
+    border: none;
+    border-bottom: 3px solid #6a8b4b;
+    padding-left: 15px;
+    height: 5vh;
+    font-size: 1.1vw;
+    font-family: ExoLight;
+    color: #ebc960;
+    background-color: transparent;
+}
+
+.b-table tbody tr:hover td, .b-table tbody tr:hover th {
+    color: black;
+    font-family: ExoBold;
+    background: gainsboro;
+}
+.b-table tr td {
+    color: white;
+    font-family: ExoLight;
+    font-size: 1.3vw;
+}
+.b-table-sticky-header > .table.b-table > thead > tr > th {
+    position: sticky !important;
+    color: black;
+    font-family: ExoBold;
+    font-style: bold;
+    background: goldenrod !important;
+    font-size: inherit !important;
+  }
+</style>

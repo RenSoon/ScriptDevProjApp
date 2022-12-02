@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-center align-items-center justify-content-xxl-center align-items-xxl-center" style="height: inherit;width: inherit;">
             <div class="d-flex flex-column">
                 <div class="container-fluid myClass">
-                    <p id="TextHead">This is the Customers Page</p>
+                    <p id="TextHead">Data is From Local Array</p>
                     <TableDesign/>
                 </div>
                 

@@ -1,0 +1,26 @@
+[
+    {
+        "elem": 0,
+        "link": "/dashboard" 
+    },
+    {
+        "elem": 1,
+        "link": "/dashboard" 
+    },
+    {
+        "elem": 2,
+        "link": "orders" 
+    },
+    {
+        "elem": 3,
+        "link": "/products" 
+    },
+    {
+        "elem": 4,
+        "link": "/users" 
+    },
+    {
+        "elem": 5,
+        "link": "/" 
+    }
+]
